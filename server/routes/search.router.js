@@ -7,7 +7,7 @@ require('dotenv').config();
 // search get that will grab all searchs using the api
 router.get('/', (req,res)=>{
  const search = req.params.search
-    console.log('in the /search get', search);
+    console.log('in the /search get');
     axios({
         method: 'GET', 
         url: `https://www.googleapis.com/books/v1/volumes?q=${search}`,
