@@ -5,8 +5,8 @@ const router = express.Router();
 // get all books
 router.get('/', (req, res) => {
     const query = `
-      SELECT * FROM user_books
-      ORDER BY "user_id" ASC;
+      SELECT * FROM books
+      ORDER BY "title" ASC;
     `
     pool.query(query)
       .then( result => {
@@ -23,7 +23,7 @@ router.put('/:id', (req, res) => {
   const  id  = req.params.id;
   console.log('put request for id', id);
   let sqlQuery = `
-    UPDATE "user_books" 
+    UPDATE "books" 
     SET "completed" =  "completed"
     WHERE "id" = $1;
   `;
@@ -43,11 +43,11 @@ router.post('/', (req, res) => {
     const books = req.body;
     let sqlQuery = `
       INSERT INTO "user_books" 
-        ("user_id", "book_id", "completed", "rating")
+        ("user_id", "book_id", "cover", "title", "author", "description" "completed")
       VALUES 
-        ($1, $2, $3, $4)
+        ($1, $2, $3, $4, $5, $6, $7)
     `;
-    const sqlParams = [ 1, books.id, books.completed, books.rating ];
+    const sqlParams = [ 1, books.id,books.cover_image, books.title, books.author, books.description, books.completed ];
     pool.query(sqlQuery, sqlParams)
       .then((result) => {
         console.log(`Added books to the database`, books);

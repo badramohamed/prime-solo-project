@@ -7,7 +7,7 @@ import axios from 'axios';
 
 function SearchPage(){
     const dispatch= useDispatch();
-    const books = useSelector(store=>store.details);
+    // const books = useSelector(store=>store.search);
     // const history = useHistory('')
     const [search,setSearch]=useState(''); 
    
@@ -22,12 +22,12 @@ function SearchPage(){
         // history.push('/search');
         
     }
-    useEffect(() => {
-        dispatch({
-            type:'FETCH_DETAILS', 
-            payload: books
-        })
-    },[])
+    // useEffect(() => {
+    //     dispatch({
+    //         type:'FETCH_DETAILS', 
+    //         payload: books
+    //     })
+    // },[])
     
     return (
         <>

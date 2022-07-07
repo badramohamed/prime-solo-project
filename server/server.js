@@ -27,7 +27,7 @@ app.use(passport.session());
 /* Routes */
 app.use('/api/user', userRouter);
 app.use('/api/:search', searchRouter);
-app.use('/api/id', detailsRouter);
+app.use('/api/details', detailsRouter);
 app.use('/api/books', booksRouter);
 
 

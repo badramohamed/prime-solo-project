@@ -5,10 +5,10 @@ import axios from 'axios';
 function* fetchDetails(action) {
     try {
         console.log('details information', action.payload);
-        let details = action.payload;
-        const response = yield axios.get(`/api/id/${details}`);
+        // let details = action.payload;
+        const details = yield axios.get(`/details/${action.payload}`);
         //sends results to details reducer below
-        yield put({ type: "SET_DETAILS", payload: response.data });
+        yield put({ type: "SET_DETAILS", payload: details.data});
     } catch (err) {
         console.log(err);
         put({ type: "ERROR GETTING details" });
