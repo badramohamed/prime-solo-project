@@ -5,12 +5,12 @@ import {useState, useEffect} from 'react';
 import {useHistory} from 'react-router-dom'
 import axios from 'axios';
 
-
 function SearchPage(){
     const dispatch= useDispatch();
     const books = useSelector(store=>store.details);
     // const history = useHistory('')
-    const [search,setSearch]=useState('');    
+    const [search,setSearch]=useState(''); 
+   
     const handleSubmit = (event)=>{
         event.preventDefault();
         dispatch({
@@ -24,7 +24,8 @@ function SearchPage(){
     }
     useEffect(() => {
         dispatch({
-            type:'FETCH_DETAILS'
+            type:'FETCH_DETAILS', 
+            payload: books
         })
     },[])
     
@@ -37,25 +38,14 @@ function SearchPage(){
                   type="search"
                   placeholder="Enter Your Book Name"
                   value = {search}
-                  onChange={(evt) => setSearch(evt.target.value)}/>
+                  onChange={(evt) => setSearch(evt.target.value)}
+                 />
+                  
                 <button>Search</button>
                 </label>
              </form>
              <>
-        <ul> 
-          {books && 
-          books.map((item)=>{
-            console.log('The list item is:', item)
-            return(
-                <>
-                <img src={item.volumeInfo.title}></img>
-                </>
-            )
-          })
-          }
-
-        </ul>
-        
+           
         
         </>
 

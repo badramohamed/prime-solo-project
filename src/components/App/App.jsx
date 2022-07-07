@@ -20,6 +20,7 @@ import LandingPage from '../LandingPage/LandingPage';
 import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
 import SearchPage from '../SearchPage/SearchPage';
+import SearchList from '../SearchList/SearchList';
 
 import './App.css';
 
@@ -64,6 +65,7 @@ function App() {
             <ProtectedRoute
             exact path = '/booklist' >
               <SearchPage />
+              <SearchList />
             </ProtectedRoute>
           <ProtectedRoute
             // logged in shows InfoPage else shows LoginPage
