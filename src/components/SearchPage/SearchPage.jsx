@@ -1,13 +1,14 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import {useDispatch} from 'react-redux';
-import {useState} from 'react';
+import {useState, useEffect} from 'react';
 import {useHistory} from 'react-router-dom'
 import axios from 'axios';
 
 
 function SearchPage(){
     const dispatch= useDispatch();
+    const books = useSelector(store=>store.details);
     // const history = useHistory('')
     const [search,setSearch]=useState('');    
     const handleSubmit = (event)=>{
@@ -21,6 +22,11 @@ function SearchPage(){
         // history.push('/search');
         
     }
+    useEffect(() => {
+        dispatch({
+            type:'FETCH_DETAILS'
+        })
+    },[])
     
     return (
         <>
@@ -35,7 +41,24 @@ function SearchPage(){
                 <button>Search</button>
                 </label>
              </form>
-             
+             <>
+        <ul> 
+          {books && 
+          books.map((item)=>{
+            console.log('The list item is:', item)
+            return(
+                <>
+                <img src={item.volumeInfo.title}></img>
+                </>
+            )
+          })
+          }
+
+        </ul>
+        
+        
+        </>
+
         </section>
         </>
         

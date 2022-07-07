@@ -13,7 +13,7 @@ router.get('/:search', (req,res)=>{
         url: `https://www.googleapis.com/books/v1/volumes?q=${search}`,
         params:{
             api_key: process.env.GOOGLE_API_KEY,
-            limit:40,
+            limit: 40,
         }
     }).then(response=>{
         console.log('axios response', response.data)
