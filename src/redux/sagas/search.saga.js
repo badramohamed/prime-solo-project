@@ -7,7 +7,7 @@ function* fetchSearch(action) {
         console.log('search information', action.payload);
         let res = yield axios.get(`/api/:search/${action.payload}`);
         //sends results to search reducer below
-        yield put({ type: 'SET_SEARCH', payload: res.data});
+        yield put({ type: "SET_SEARCH", payload: res.data});
     } catch (err) {
         console.log('error',err);
        return;
@@ -15,7 +15,7 @@ function* fetchSearch(action) {
 }
 
 function* searchSaga(){
-    yield takeEvery ('FETCH_SEARCH', fetchSearch);
+    yield takeEvery ("FETCH_SEARCH", fetchSearch);
 }
 
 export default searchSaga;

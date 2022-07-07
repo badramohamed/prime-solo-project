@@ -5,7 +5,7 @@ const axios = require('axios');
 require('dotenv').config();
 
 // search get that will grab all searchs using the api
-router.get('/', (req,res)=>{
+router.get('/:search', (req,res)=>{
  const search = req.params.search
     console.log('in the /search get');
     axios({
@@ -19,7 +19,7 @@ router.get('/', (req,res)=>{
         console.log('axios response', response.data)
         res.send(response.data.items);
     }).catch(err=>{
-        console.log('error in books', err.data);
+        console.log('error in books', err);
         res.sendStatus(500);
     })
 });
