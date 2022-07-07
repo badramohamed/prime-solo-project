@@ -17,7 +17,6 @@ function SearchList (){
             // console.log('The list item is:', item)
             return(
                 <>
-                {/* <div className="card" onClick={()=>{setShow(true);setItem(item)}}></div> */}
                 <h3 className="title">{item.volumeInfo.title }</h3>
                 <img src={thumbnail}></img>
                 <h3 className="author">{item.volumeInfo.authors}</h3>
