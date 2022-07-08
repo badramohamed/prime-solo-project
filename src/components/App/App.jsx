@@ -24,7 +24,7 @@ import SearchList from '../SearchList/SearchList';
 import WishList from '../WishList/WishList';
 import CurrentReads from '../CurrentReads/CurrentReads';
 
-// import DetailsPage from '../DetailsPage/DetailsPage';
+import DetailsPage from '../DetailsPage/DetailsPage';
 
 import './App.css';
 
@@ -65,6 +65,14 @@ function App() {
           >
         <CurrentReads/>
           </ProtectedRoute>
+          <ProtectedRoute
+          
+            exact
+            path="/details"
+          >
+            <DetailsPage />
+          </ProtectedRoute>
+
           <ProtectedRoute
           
             exact
