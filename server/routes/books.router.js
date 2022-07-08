@@ -39,18 +39,17 @@ router.put('/:id', (req, res) => {
 });
 
 router.post('/', (req, res) => {
-    console.log('in post req.body is', req.body)
-    const books = req.body;
+    // console.log('in post req.body is', req.body)
+  
     let sqlQuery = `
-      INSERT INTO "user_books" 
-        ("user_id", "book_id", "cover", "title", "author", "description" "completed")
+      INSERT INTO "books" 
+        ("user_id", "cover", "title", "author", "description" )
       VALUES 
-        ($1, $2, $3, $4, $5, $6, $7)
+        ($1, $2, $3, $4, $5)
     `;
-    const sqlParams = [ 1, books.id,books.cover_image, books.title, books.author, books.description, books.completed ];
-    pool.query(sqlQuery, sqlParams)
+    const sqlValue = [ req.user.id, req.body.cover, req.body.title, req.body.author, req.body.description ];
+    pool.query(sqlQuery, sqlValue)
       .then((result) => {
-        console.log(`Added books to the database`, books);
         res.sendStatus(201);
     })
     .catch((error) => {
