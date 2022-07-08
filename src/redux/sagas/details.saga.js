@@ -6,7 +6,7 @@ function* fetchDetails(action) {
   try {
     console.log("details information", action.payload);
     // let details = action.payload;
-    const details = yield axios.get(`/details/${action.payload}`);
+    const details = yield axios.get(`/api/details/${action.payload}`);
     //sends  to details reducer
     yield put({ type: "SET_DETAILS", payload: details.data });
   } catch (err) {
