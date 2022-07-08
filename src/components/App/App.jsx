@@ -21,6 +21,8 @@ import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
 import SearchPage from '../SearchPage/SearchPage';
 import SearchList from '../SearchList/SearchList';
+import WishList from '../WishList/WishList';
+import CurrentReads from '../CurrentReads/CurrentReads';
 // import DetailsPage from '../DetailsPage/DetailsPage';
 
 import './App.css';
@@ -40,7 +42,7 @@ function App() {
         <Nav />
         <Switch>
           {/* Visiting localhost:3000 will redirect to localhost:3000/home */}
-          <Redirect exact from="/" to="/home" />
+          <Redirect exact from="/" to="/current" />
 
           {/* Visiting localhost:3000/about will show the about page. */}
           <Route
@@ -60,19 +62,27 @@ function App() {
             exact
             path="/user"
           >
-            <UserPage />
+        <CurrentReads/>
+          </ProtectedRoute>
+          <ProtectedRoute
+          
+            exact
+            path="/current"
+          >
+            <CurrentReads />
           </ProtectedRoute>
 
             <ProtectedRoute
             exact path = '/booklist' >
-              <SearchPage />
+             
               <SearchList />
             </ProtectedRoute>
+            
 
-            {/* <ProtectedRoute
-            exact path='/details' >
-        <DetailsPage />
-        </ProtectedRoute> */}
+            <ProtectedRoute
+            exact path='/Wishlist' >
+        <WishList />
+        </ProtectedRoute>
        
           <ProtectedRoute
             // logged in shows InfoPage else shows LoginPage
@@ -92,7 +102,7 @@ function App() {
             {user.id ?
               // If the user is already logged in, 
               // redirect to the /user page
-              <Redirect to="/user" />
+              <Redirect to="/current" />
               :
               // Otherwise, show the login page
               <LoginPage />

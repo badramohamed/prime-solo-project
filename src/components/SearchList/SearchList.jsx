@@ -4,6 +4,7 @@ import { useDispatch } from "react-redux";
 import { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import axios from "axios";
+import SearchPage from "../SearchPage/SearchPage";
 
 function SearchList() {
   const books = useSelector((store) => store.search);
@@ -26,12 +27,15 @@ function SearchList() {
         description,
       },
     });
+    history.push('/Wishlist');
     // console.log('books---------->', books)
     // console.log('id------>', books.id)
   };
 
   return (
     <>
+     <SearchPage />
+  
       {books &&
         books.map((item) => {
           let thumbnail =
@@ -40,6 +44,7 @@ function SearchList() {
           console.log("The list item is:", item.volumeInfo.title);
           return (
             <>
+             <h1> Search Results </h1>
               <div key={item.id}>
                 <h3 className="title">{item.volumeInfo.title}</h3>
                 <img src={thumbnail}></img>
