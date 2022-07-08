@@ -7,7 +7,6 @@ import SearchPage from "../SearchPage/SearchPage";
 
 function SearchList() {
   const books = useSelector((store) => store.search);
-  // const [details, setDetails]=useState('');
   const history = useHistory();
   
 
@@ -23,7 +22,7 @@ function SearchList() {
           console.log("The list item is:", item.volumeInfo.title);
           return (
             <>
-              <div key={item.id} onClick={() => history.push("/details")}>
+              <div key={item.id} onClick={() => history.push(`/details/${item.id}`)}>
                 <h3 className="title">{item.volumeInfo.title}</h3>
                 <img src={thumbnail}></img>
               </div>

@@ -2,13 +2,23 @@ import React from "react";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { useState, useEffect } from "react";
-import { useHistory } from "react-router-dom";
+import { useHistory, useParams } from "react-router-dom";
 
 function DetailsPage() {
   const details = useSelector((store) => store.details);
   const books = useSelector((store) => store.search);
   const history = useHistory();
   const dispatch = useDispatch();
+  const { id } = useParams();
+
+  useEffect(() => {
+    dispatch({
+      type: "FETCH_DETAILS",
+      payload: id,
+    });
+    console.log("in the fetch Details>>>>>>>");
+  }, []);
+
   const Wishlist = (event) => {
     const title = event.target.title;
     const cover = event.target.getAttribute("cover");
@@ -27,43 +37,28 @@ function DetailsPage() {
     // console.log('books---------->', books)
     // console.log('id------>', books.id)
   };
+  console.log(details);
 
   return (
     <>
       <h1> DETAILS PAGE</h1>
-      {details &&
-        details.map((detail) => {
-          return (
-            <div>
-              <p> {detail.name}</p>
-            </div>
-          );
-        })}
-      {books &&
-        books.map((book) => {
-          let thumbnail =
-            book.volumeInfo.imageLinks &&
-            book.volumeInfo.imageLinks.smallThumbnail;
-          return (
-            <>
-              <div key={book.id}>
-                <h3 className="title">{book.volumeInfo.title}</h3>
-                <img src={thumbnail}></img>
-                <h3 className="author">{book.volumeInfo.authors}</h3>
-                <h3 className="description">{book.volumeInfo.description}</h3>
-              </div>
-              <button
-                title={book.volumeInfo.title}
-                cover={thumbnail}
-                author={book.volumeInfo.authors}
-                description={book.volumeInfo.description}
-                onClick={Wishlist}
-              >
-                wishlist
-              </button>
-            </>
-          );
-        })}
+      <h2>{details.volumeInfo && details.volumeInfo.title}</h2>
+      <h2> {details.volumeInfo && details.volumeInfo.authors}</h2>
+      <h2>{details.volumeInfo && details.volumeInfo.description}</h2>
+      <img
+        src={details.volumeInfo && details.volumeInfo.imageLinks.smallThumbnail}
+      />
+      <button
+        title={details.volumeInfo && details.volumeInfo.title}
+        author={details.volumeInfo && details.volumeInfo.authors}
+        cover={
+          details.volumeInfo && details.volumeInfo.imageLinks.smallThumbnail
+        }
+        description={details.volumeInfo && details.volumeInfo.description}
+        onClick={Wishlist}
+      >
+        wishlist
+      </button>
     </>
   );
 }
