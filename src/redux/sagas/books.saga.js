@@ -4,8 +4,8 @@ import axios from "axios";
 function* fetchBooks (action){
   // console.log('made it to fetchDetails!', action);
   try {
-      let res = yield axios.get(`/api/books/${action.payload}`);
-      
+      let res = yield axios.get('/api/books/');
+      console.log('response', res.data)
       yield put({
           type: 'SET_DETAILS',
           payload: res.data
@@ -27,7 +27,7 @@ function* fetchSaga(action) {
 
 function* booksSaga() {
   yield takeEvery("FETCH_BOOK", fetchSaga);
-  yield takeEvery("FETCH_BOOK", fetchSaga);
+  yield takeEvery("FETCH_DB_BOOKS", fetchBooks);
 
 }
 export default booksSaga;

@@ -20,15 +20,15 @@ router.get('/', (req, res) => {
 
 // update books owned status in db 
 router.put('/:id', (req, res) => {
-  const  id  = req.params.id;
+  
   console.log('put request for id', id);
   let sqlQuery = `
     UPDATE "books" 
-    SET "completed" =  "completed"
-    WHERE "id" = $1;
+    SET "completed" = $1
+    WHERE "id" = $2;
   `;
   const sqlParams = [
-    true, id
+    true, req.params.id
   ];
   pool.query(sqlQuery, sqlParams)
     .then(() => {

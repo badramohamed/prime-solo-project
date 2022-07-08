@@ -23,6 +23,7 @@ import SearchPage from '../SearchPage/SearchPage';
 import SearchList from '../SearchList/SearchList';
 import WishList from '../WishList/WishList';
 import CurrentReads from '../CurrentReads/CurrentReads';
+
 // import DetailsPage from '../DetailsPage/DetailsPage';
 
 import './App.css';

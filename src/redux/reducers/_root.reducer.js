@@ -4,6 +4,7 @@ import user from './user.reducer';
 import search from './search.reducer';
 import details from './details.reducer';
 import books from './books.reducer';
+import booksdb from './booksdb.reducer';
 
 // rootReducer is the primary reducer for our entire project
 // It bundles up all of the other reducers so our project can use them.
@@ -14,6 +15,7 @@ import books from './books.reducer';
 const rootReducer = combineReducers({
   errors, // contains registrationMessage and loginMessage
   books,
+  booksdb,
   details, // grabs details by id
   search, // our search api
   user, // will have an id and username if someone is logged in
