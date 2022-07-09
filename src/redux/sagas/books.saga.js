@@ -15,6 +15,21 @@ function* fetchBooks (action){
       console.error(' failed', err);
   }
 }
+function* fetchCompleted() {
+  
+  try {
+    const response = yield axios({
+      method: 'GET',
+      url: `api/books/completed`,
+    });
+    console.log('GET Completed Books:', response.data);
+    yield put({ type: 'SET_COMPLETED', payload: response.data });
+
+  } catch {
+    console.log('GET/COMPLETED books error');
+  }
+
+}
 
 function* fetchSaga(action) {
   // posts all books into my database
@@ -28,6 +43,8 @@ function* fetchSaga(action) {
 function* booksSaga() {
   yield takeEvery("FETCH_BOOK", fetchSaga);
   yield takeEvery("FETCH_DB_BOOKS", fetchBooks);
+  yield takeEvery("FETCH_COMPLETED_BOOKS", fetchCompleted );
+
 
 }
 export default booksSaga;

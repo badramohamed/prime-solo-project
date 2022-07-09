@@ -5,7 +5,26 @@ const router = express.Router();
 // get all books
 router.get('/', (req, res) => {
     const query = `
-      SELECT * FROM books
+      SELECT * 
+      FROM books
+      WHERE completed = false
+      ORDER BY "title" ASC;
+    `
+    pool.query(query)
+      .then( result => {
+        res.send(result.rows);
+      })
+      .catch(err => {
+        console.log('ERROR: getting books', err);
+        res.sendStatus(500)
+      })
+  });
+
+  router.get('/completed', (req, res) => {
+    const query = `
+      SELECT * 
+      FROM books
+      WHERE completed = true
       ORDER BY "title" ASC;
     `
     pool.query(query)

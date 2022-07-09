@@ -12,17 +12,13 @@ function CurrentReads(){
     const history = useHistory();
     const booksdb = useSelector(store => store.booksdb);
     
-    // // use effect that will be used to dispatch my fetchMovies 
     useEffect(() => {
         dispatch({ type: 'FETCH_DB_BOOKS' });
+   
         
     }, []);
 
 
-    // handlesubmit that will push the data and post as well as push users to the details page
-  
-    
-    // return that will loops through the data to grab each one needed
     return (
       <>
         {booksdb.map((books) => {
