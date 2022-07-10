@@ -6,9 +6,7 @@ import { useHistory } from "react-router-dom";
 import axios from "axios";
 
 function WishList (){
-    const completedList = useSelector(store => store.completed)
-    console.log('>>>>>>>>>>',completedList)
-    const dispatch = useDispatch();
+   
     // useEffect(() => {
        
     //     dispatch({
