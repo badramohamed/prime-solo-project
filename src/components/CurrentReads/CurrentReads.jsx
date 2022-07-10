@@ -13,7 +13,7 @@ function CurrentReads(){
     const booksdb = useSelector(store => store.booksdb);
     
     useEffect(() => {
-        dispatch({ type: 'FETCH_DB_BOOKS' });
+        dispatch({ type: 'DELETE_DB_BOOKS' });
    
         
     }, []);

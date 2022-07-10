@@ -32,6 +32,14 @@ function* fetchCompleted(action) {
   }
 
 }
+function* deleteBooks(action) {
+  // delete books from db 
+  try {
+      yield axios.delete(`/api/books/`+ action.payload);
+  } catch {
+      console.log('delete books ');
+  } yield put({ type: 'FETCH_DB_BOOKS' })
+};
 
 function* fetchSaga(action) {
   // posts all books into my database
@@ -46,6 +54,8 @@ function* booksSaga() {
   yield takeEvery("FETCH_BOOK", fetchSaga);
   yield takeEvery("FETCH_DB_BOOKS", fetchBooks);
   yield takeEvery("FETCH_COMPLETED_BOOKS", fetchCompleted );
+  yield takeEvery("DELETE_DB_BOOKS", deleteBooks );
+
 
 
 }
