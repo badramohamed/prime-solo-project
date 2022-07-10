@@ -7,7 +7,6 @@ router.get('/', (req, res) => {
     const query = `
       SELECT * 
       FROM books
-      WHERE completed = false
       ORDER BY "title" ASC;
     `
     pool.query(query)
@@ -20,7 +19,7 @@ router.get('/', (req, res) => {
       })
   });
 
-  router.get('/completed', (req, res) => {
+  router.get('/', (req, res) => {
     const query = `
       SELECT * 
       FROM books
@@ -39,7 +38,7 @@ router.get('/', (req, res) => {
 
 // update books owned status in db 
 router.put('/:id', (req, res) => {
-  
+  const id = req.params.id
   console.log('put request for id', id);
   let sqlQuery = `
     UPDATE "books" 
@@ -47,7 +46,7 @@ router.put('/:id', (req, res) => {
     WHERE "id" = $2;
   `;
   const sqlParams = [
-    true, req.params.id
+  true, id
   ];
   pool.query(sqlQuery, sqlParams)
     .then(() => {

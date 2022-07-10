@@ -9,12 +9,12 @@ function WishList (){
     const completedList = useSelector(store => store.completed)
     console.log('>>>>>>>>>>',completedList)
     const dispatch = useDispatch();
-    useEffect(() => {
+    // useEffect(() => {
        
-        dispatch({
-            type: 'FETCH_DB_COMPLETED'
-        })
-    }, [])
+    //     dispatch({
+    //         type: 'FETCH_DB_COMPLETED'
+    //     })
+    // }, [])
  
     return(
         <>

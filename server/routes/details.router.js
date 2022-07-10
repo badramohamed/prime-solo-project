@@ -12,10 +12,10 @@ const axios = require('axios');
    console.log('the book id is', id)
    axios({
      method: 'GET', 
-     url: `https://www.googleapis.com/books/v1/volumes?q=${id}`,
-    //  params:{
-    //     q: id
-    //  }
+     url: `https://www.googleapis.com/books/v1/volumes?`,
+     params:{
+        q: id
+     }
    }).then((response) => {
          console.log(response.data)
          res.send(response.data);

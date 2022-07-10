@@ -15,18 +15,20 @@ function* fetchBooks (action){
       console.error(' failed', err);
   }
 }
-function* fetchCompleted() {
+
+
+function* fetchCompleted(action) {
   
   try {
     const response = yield axios({
-      method: 'GET',
-      url: `api/books/completed`,
+      method: 'PUT',
+      url: `/api/books/${action.payload}`,
     });
-    console.log('GET Completed Books:', response.data);
-    yield put({ type: 'SET_COMPLETED', payload: response.data });
+    console.log('GET Completed Books:', action.payload);
+    yield put({ type: 'FETCH_DB_BOOKS'});
 
   } catch {
-    console.log('GET/COMPLETED books error');
+    console.log('GET/COMPLETED books error' );
   }
 
 }
