@@ -23,7 +23,7 @@ function Book ({books}){
 
     const handleDelete = ()=>{
         dispatch({
-            type:'DELETE_BOOK',
+            type:'DELETE_DB_BOOKS',
             payload: books.id
         })
 

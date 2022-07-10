@@ -32,12 +32,13 @@ function* fetchCompleted(action) {
   }
 
 }
+
 function* deleteBooks(action) {
   // delete books from db 
   try {
-      yield axios.delete(`/api/books/`+ action.payload);
+      yield axios.delete(`/api/books/${action.payload}`);
   } catch {
-      console.log('delete books ');
+      console.log('delete books ', action.payload);
   } yield put({ type: 'FETCH_DB_BOOKS' })
 };
 

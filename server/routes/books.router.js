@@ -74,6 +74,25 @@ router.post('/', (req, res) => {
         console.log(`Error in post database `, error);
         res.sendStatus(500);
     })
+  });
+
+  router.delete('/:id', (req, res) => {
+    const id = req.params.id;
+    console.log('Delete request for id', id);
+    let sqlQuery = `
+      DELETE FROM "books" 
+      WHERE "id" = $1;
+    `;
+    const sqlParams = [
+    id ];
+    pool.query(sqlQuery, sqlParams)
+      .then(() => {
+        console.log('deleted book');
+        res.sendStatus(200);
+      }).catch( (error) => {
+        console.log(`Error deleting in db`, error);
+        res.sendStatus(500); 
+      })
   })
 
 module.exports = router;
