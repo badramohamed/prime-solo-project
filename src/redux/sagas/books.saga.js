@@ -7,7 +7,7 @@ function* fetchBooks(action) {
     let res = yield axios.get("/api/books/");
     console.log("response", res.data);
     yield put({
-      type: "SET_DETAILS",
+      type: "SET_DATABOOKS",
       payload: res.data,
     });
   } catch (err) {

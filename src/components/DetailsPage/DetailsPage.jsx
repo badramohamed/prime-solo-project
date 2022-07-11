@@ -16,7 +16,7 @@ function DetailsPage() {
       type: "FETCH_DETAILS",
       payload: id,
     });
-    console.log("in the fetch Details>>>>>>>");
+    dispatch({ type: "FETCH_DB_BOOKS" });
   }, []);
 
   const Wishlist = (event) => {
@@ -33,7 +33,7 @@ function DetailsPage() {
         description,
       },
     });
-    history.push("/Wishlist");
+    history.push("/books");
     // console.log('books---------->', books)
     // console.log('id------>', books.id)
   };
@@ -57,7 +57,7 @@ function DetailsPage() {
         description={details.volumeInfo && details.volumeInfo.description}
         onClick={Wishlist}
       >
-        wishlist
+        add book
       </button>
     </>
   );

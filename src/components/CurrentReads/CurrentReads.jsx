@@ -6,33 +6,23 @@ import { useHistory } from "react-router-dom";
 // import axios from "axios";
 // import SearchPage from "../SearchPage/SearchPage";
 import Book from "../Book/Book";
-function CurrentReads(){
-   
-    const dispatch = useDispatch();
-    const history = useHistory();
-    const booksdb = useSelector(store => store.booksdb);
-    
-    useEffect(() => {
-        dispatch({ type: 'DELETE_DB_BOOKS' });
-   
-        
-    }, []);
+function CurrentReads() {
+  const dispatch = useDispatch();
+  const history = useHistory();
+  const booksdb = useSelector((store) => store.booksdb);
 
+  useEffect(() => {
+    dispatch({ type: "FETCH_DB_BOOKS" });
+    console.log("HELLLOOO", booksdb);
+  }, []);
 
-    return (
-      <>
-        {booksdb.map((books) => {
-            return (
-                <Book key={books.id} books={books} />
-               
-                );
-        })}
-            
-        </>
-       
-            );
-           
+  return (
+    <>
+      {booksdb.map((books) => {
+        return <Book key={books.id} books={books} />;
+      })}
+    </>
+  );
+}
 
-        } 
-   
 export default CurrentReads;

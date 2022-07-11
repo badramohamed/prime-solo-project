@@ -12,7 +12,7 @@ import Nav from '../Nav/Nav';
 import Footer from '../Footer/Footer';
 
 import ProtectedRoute from '../ProtectedRoute/ProtectedRoute';
-
+import Home from '../Home/Home';
 import AboutPage from '../AboutPage/AboutPage';
 import UserPage from '../UserPage/UserPage';
 import InfoPage from '../InfoPage/InfoPage';
@@ -43,7 +43,7 @@ function App() {
         <Nav />
         <Switch>
           {/* Visiting localhost:3000 will redirect to localhost:3000/home */}
-          <Redirect exact from="/" to="/current" />
+          <Redirect exact from="/" to="/Home" />
 
           {/* Visiting localhost:3000/about will show the about page. */}
           <Route
@@ -61,9 +61,9 @@ function App() {
           <ProtectedRoute
             // logged in shows UserPage else shows LoginPage
             exact
-            path="/user"
+            path="/Home"
           >
-        <CurrentReads/>
+        <Home/>
           </ProtectedRoute>
           <ProtectedRoute
           
@@ -76,7 +76,7 @@ function App() {
           <ProtectedRoute
           
             exact
-            path="/current"
+            path="/books"
           >
             <CurrentReads />
           </ProtectedRoute>
