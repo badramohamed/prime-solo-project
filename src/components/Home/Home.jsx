@@ -1,7 +1,7 @@
 function Home (){
     return(
         <>
-        hi
+        <img src="../images/imageone.png"/>
         </>
     )
 }

@@ -19,7 +19,7 @@ function SearchList() {
           let thumbnail =
             item.volumeInfo.imageLinks &&
             item.volumeInfo.imageLinks.smallThumbnail;
-          console.log("The list item is:", item.volumeInfo.title);
+          console.log("items in map", item.volumeInfo.title);
           return (
             <>
               <div key={item.id} onClick={() => history.push(`/details/${item.id}`)}>
