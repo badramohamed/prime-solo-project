@@ -28,7 +28,7 @@ export default function ContactUs() {
   }
   return (
     <>
-    <h2></h2>
+    <h2> Contact Us</h2>
       <form className="contact-form" onSubmit={sendEmail}>
         <input type="hidden" name="contact_number"  />
         <label>Name</label>
@@ -38,7 +38,7 @@ export default function ContactUs() {
         <label>Subject</label>
         <input type="text" name="subject" placeholder="subject" />
         <label>Message</label>
-        <textarea name="html_message" placeholder="whats the buzz?" />
+        <textarea name="html_message" placeholder="whats the buzz? 🐝" />
         <input type="submit" value="Send" />
       </form>
     </>
