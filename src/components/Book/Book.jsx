@@ -55,6 +55,8 @@ function Book({ books }) {
         <img src={books.cover} alt={books.title} />
         <button onClick={handleDelete}> delete</button>
         <button onClick={handleComplete}> complete</button>
+        
+
       </div>
     </>
   );
