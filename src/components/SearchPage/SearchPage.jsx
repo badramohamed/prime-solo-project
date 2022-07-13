@@ -18,6 +18,7 @@ function SearchPage() {
     setSearch("");
     // history.push('/search');
   };
+ 
 
   return (
     <>

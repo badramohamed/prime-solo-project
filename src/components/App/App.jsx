@@ -21,8 +21,8 @@ import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
 import SearchPage from '../SearchPage/SearchPage';
 import SearchList from '../SearchList/SearchList';
-import WishList from '../WishList/WishList';
 import CurrentReads from '../CurrentReads/CurrentReads';
+import ContactUs from '../ContactUs/ContactUs';
 
 import DetailsPage from '../DetailsPage/DetailsPage';
 
@@ -89,8 +89,8 @@ function App() {
             
 
             <ProtectedRoute
-            exact path='/Wishlist' >
-        <WishList />
+            exact path='/contact' >
+        <ContactUs />
         </ProtectedRoute>
        
           <ProtectedRoute
