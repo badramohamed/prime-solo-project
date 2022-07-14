@@ -5,7 +5,7 @@ import { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import swal from "sweetalert";
 import { makeStyles } from "@material-ui/core/styles";
-
+import styles from "./styles";
 ///////////////////////MATERIAL UI /////////////////////////
 import Rating from "@mui/material/Rating";
 import Stack from "@mui/material/Stack";
@@ -58,10 +58,12 @@ function Book({ books }) {
 
   return (
     <>
+        <Card sx={{ maxWidth: 345 }}>
+
       <Container
         maxWidth="sm"
         className={classes.cardGrid}
-        style={{ marginTop: "50px", marginLeft: "50px", marginRight: "80px" }}
+        style={{ marginTop: "50px", marginLeft: "50px", marginRight: "50px" }}
       >
         <CardContent className={classes.cardContent}>
           <Typography gutterBottom>
@@ -71,6 +73,7 @@ function Book({ books }) {
             <p>{books.description} </p>
           </Typography>
         </CardContent>
+        <CardActions>
         <Button
           onClick={handleDelete}
           size="small"
@@ -90,10 +93,13 @@ function Book({ books }) {
           color="primary"
         >
           <Stack spacing={1}>
-            <Rating name="half-rating" defaultValue={1} precision={0.5} />
+            <Rating name="half-rating" defaultValue={1} precision={0.5} size= "" />
           </Stack>
+        
         </Button>
+        </CardActions>
       </Container>
+      </Card>
     </>
   );
 }
