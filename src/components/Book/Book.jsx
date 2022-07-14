@@ -4,6 +4,9 @@ import { useDispatch } from "react-redux";
 import { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import swal from "sweetalert";
+import Rating from '@mui/material/Rating';
+import Stack from '@mui/material/Stack';
+
 
 function Book({ books }) {
   const dispatch = useDispatch();
@@ -51,11 +54,13 @@ function Book({ books }) {
       <div>
         <h3>{books.title}</h3>
         <h3>{books.author}</h3>
-        <h3>{books.description}</h3>
+        {/* <h3>{books.description}</h3> */}
         <img src={books.cover} alt={books.title} />
         <button onClick={handleDelete}> delete</button>
         <button onClick={handleComplete}> complete</button>
-        
+        <Stack spacing={1}>
+      <Rating name="half-rating" defaultValue={2.5} precision={0.5} />
+    </Stack>
 
       </div>
     </>
