@@ -3,6 +3,7 @@ import { useDispatch } from "react-redux";
 import { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import axios from "axios";
+import { Button, Grid } from "@material-ui/core";
 
 function SearchPage() {
   const dispatch = useDispatch();
@@ -25,13 +26,14 @@ function SearchPage() {
       <section>
         <form onSubmit={handleSubmit}>
           <label>
+
             <input
               type="search"
               placeholder="Enter Your Book Name"
               value={search}
               onChange={(evt) => setSearch(evt.target.value)}
             />
-            <button>search</button>
+            <Button variant="contained">search</Button>
           </label>
         </form>
         <></>

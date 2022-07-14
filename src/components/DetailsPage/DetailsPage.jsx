@@ -3,12 +3,25 @@ import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { useState, useEffect } from "react";
 import { useHistory, useParams } from "react-router-dom";
+import { Typography } from "@material-ui/core";
+import { Container } from "@material-ui/core";
+import { Card, CardMedia, CardContent, CardActions } from "@material-ui/core";
+import { Button, Grid } from "@material-ui/core";
+import { makeStyles } from "@material-ui/core/styles";
+
+
+
+
+
+
 
 function DetailsPage() {
   const details = useSelector((store) => store.details);
   const books = useSelector((store) => store.search);
   const history = useHistory();
   const dispatch = useDispatch();
+  const classes = makeStyles();
+
   const { id } = useParams();
 
   useEffect(() => {
@@ -41,14 +54,19 @@ function DetailsPage() {
 
   return (
     <>
-      <h1> DETAILS PAGE</h1>
-      <h2>{details.volumeInfo && details.volumeInfo.title}</h2>
-      <h2> {details.volumeInfo && details.volumeInfo.authors}</h2>
-      <h2>{details.volumeInfo && details.volumeInfo.description}</h2>
+    <CardContent className={classes.cardContent}>
+        <Typography>
+      {/* <h1> DETAILS:</h1> */}
+      <h2>Book Title: {details.volumeInfo && details.volumeInfo.title}</h2>
+      <h2> Authors: {details.volumeInfo && details.volumeInfo.authors}</h2>
+      <h2> Summary: {details.volumeInfo && details.volumeInfo.description}</h2>
       <img
         src={details.volumeInfo && details.volumeInfo.imageLinks.smallThumbnail}
       />
-      <button
+    </Typography>
+    </CardContent>
+
+      <Button
         title={details.volumeInfo && details.volumeInfo.title}
         author={details.volumeInfo && details.volumeInfo.authors}
         cover={
@@ -56,9 +74,14 @@ function DetailsPage() {
         }
         description={details.volumeInfo && details.volumeInfo.description}
         onClick={Wishlist}
+        size= "small"
+        variant="contained"
+        color="primary"
+       
       >
         add book
-      </button>
+      </Button>
+     
     </>
   );
 }

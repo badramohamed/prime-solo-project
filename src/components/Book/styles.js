@@ -16,7 +16,8 @@ const styles = makeStyles((desings) => ({
   card:{
     padding:"50px",
     width: "30px"
-  }
+  },
+  
 }));
 
 export default styles;
