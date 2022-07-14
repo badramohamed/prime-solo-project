@@ -4,9 +4,19 @@ import { useDispatch } from "react-redux";
 import { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import swal from "sweetalert";
+import { makeStyles } from "@material-ui/core/styles";
+import styles from "./styles";
+///////////////////////MATERIAL UI /////////////////////////
+import Rating from "@mui/material/Rating";
+import Stack from "@mui/material/Stack";
+import { Button, Grid } from "@material-ui/core";
+import { Typography } from "@material-ui/core";
+import { Container } from "@material-ui/core";
+import { Card, CardMedia, CardContent, CardActions } from "@material-ui/core";
 
 function Book({ books }) {
   const dispatch = useDispatch();
+  const classes = makeStyles();
 
   const handleComplete = () => {
     console.log(books.id);
@@ -48,16 +58,51 @@ function Book({ books }) {
 
   return (
     <>
-      <div>
-        <h3>{books.title}</h3>
-        <h3>{books.author}</h3>
-        <h3>{books.description}</h3>
-        <img src={books.cover} alt={books.title} />
-        <button onClick={handleDelete}> delete</button>
-        <button onClick={handleComplete}> complete</button>
-        
+      <Card sx={{ maxWidth: 345 }}>
+        <Container
+          maxWidth="sm"
+          className={classes.cardGrid}
+          style={{ marginTop: "50px", marginLeft: "50px", marginRight: "50px" }}
+        >
+          <CardContent className={classes.cardContent}>
+            <Typography gutterBottom>
+              <h2>{books.title} </h2>
+              <img src={books.cover} />
+              <h2> {books.author} </h2>
+              <p>{books.description} </p>
+            </Typography>
+          </CardContent>
+          <CardActions>
+            <Button
+              onClick={handleDelete}
+              size="small"
+              className={classes.buttons}
+              variant="contained"
+              color="primary"
+            >
+              {" "}
+              delete
+            </Button>
 
-      </div>
+            <Button
+              onClick={handleComplete}
+              size="small"
+              className={classes.buttons}
+              variant="contained"
+              color="primary"
+            >
+              <Stack spacing={1}>
+                <Rating
+                  name="half-rating"
+                  defaultValue={1}
+                  precision={0.5}
+                  size=""
+                />
+              </Stack>
+            </Button>
+          </CardActions>
+        </Container>
+      </Card>
     </>
   );
 }
