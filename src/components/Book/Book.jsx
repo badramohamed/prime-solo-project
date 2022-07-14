@@ -59,7 +59,6 @@ function Book({ books }) {
   return (
     <>
         <Card sx={{ maxWidth: 345 }}>
-
       <Container
         maxWidth="sm"
         className={classes.cardGrid}
