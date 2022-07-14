@@ -58,46 +58,50 @@ function Book({ books }) {
 
   return (
     <>
-        <Card sx={{ maxWidth: 345 }}>
-      <Container
-        maxWidth="sm"
-        className={classes.cardGrid}
-        style={{ marginTop: "50px", marginLeft: "50px", marginRight: "50px" }}
-      >
-        <CardContent className={classes.cardContent}>
-          <Typography gutterBottom>
-            <h2>{books.title} </h2>
-            <img src={books.cover} />
-            <h2> {books.author} </h2>
-            <p>{books.description} </p>
-          </Typography>
-        </CardContent>
-        <CardActions>
-        <Button
-          onClick={handleDelete}
-          size="small"
-          className={classes.buttons}
-          variant="contained"
-          color="primary"
+      <Card sx={{ maxWidth: 345 }}>
+        <Container
+          maxWidth="sm"
+          className={classes.cardGrid}
+          style={{ marginTop: "50px", marginLeft: "50px", marginRight: "50px" }}
         >
-          {" "}
-          delete
-        </Button>
+          <CardContent className={classes.cardContent}>
+            <Typography gutterBottom>
+              <h2>{books.title} </h2>
+              <img src={books.cover} />
+              <h2> {books.author} </h2>
+              <p>{books.description} </p>
+            </Typography>
+          </CardContent>
+          <CardActions>
+            <Button
+              onClick={handleDelete}
+              size="small"
+              className={classes.buttons}
+              variant="contained"
+              color="primary"
+            >
+              {" "}
+              delete
+            </Button>
 
-        <Button 
-          onClick={handleComplete}
-          size="small"
-          className={classes.buttons}
-          variant="contained"
-          color="primary"
-        >
-          <Stack spacing={1}>
-            <Rating name="half-rating" defaultValue={1} precision={0.5} size= "" />
-          </Stack>
-        
-        </Button>
-        </CardActions>
-      </Container>
+            <Button
+              onClick={handleComplete}
+              size="small"
+              className={classes.buttons}
+              variant="contained"
+              color="primary"
+            >
+              <Stack spacing={1}>
+                <Rating
+                  name="half-rating"
+                  defaultValue={1}
+                  precision={0.5}
+                  size=""
+                />
+              </Stack>
+            </Button>
+          </CardActions>
+        </Container>
       </Card>
     </>
   );
