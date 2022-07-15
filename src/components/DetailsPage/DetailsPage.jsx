@@ -41,7 +41,8 @@ function DetailsPage() {
 
   return (
     <>
-      <h1> DETAILS PAGE</h1>
+      {/* <h1> DETAILS PAGE</h1> */}
+ 
       <h2>{details.volumeInfo && details.volumeInfo.title}</h2>
       <h2> {details.volumeInfo && details.volumeInfo.authors}</h2>
       <h2>{details.volumeInfo && details.volumeInfo.description}</h2>
@@ -59,6 +60,7 @@ function DetailsPage() {
       >
         add book
       </button>
+     
     </>
   );
 }
