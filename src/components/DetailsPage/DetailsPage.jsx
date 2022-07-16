@@ -3,6 +3,7 @@ import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { useState, useEffect } from "react";
 import { useHistory, useParams } from "react-router-dom";
+import { Card, CardMedia, CardContent, CardActions } from "@material-ui/core";
 
 function DetailsPage() {
   const details = useSelector((store) => store.details);
@@ -42,13 +43,18 @@ function DetailsPage() {
   return (
     <>
       {/* <h1> DETAILS PAGE</h1> */}
- 
-      <h2>{details.volumeInfo && details.volumeInfo.title}</h2>
-      <h2> {details.volumeInfo && details.volumeInfo.authors}</h2>
-      <h2>{details.volumeInfo && details.volumeInfo.description}</h2>
+      <Card sx={{ maxWidth: 345 }}>
+      <CardContent>
+
       <img
         src={details.volumeInfo && details.volumeInfo.imageLinks.smallThumbnail}
       />
+      <h2>{details.volumeInfo && details.volumeInfo.title}</h2>
+      <h2> {details.volumeInfo && details.volumeInfo.authors}</h2>
+      <h2>{details.volumeInfo && details.volumeInfo.description}</h2>
+      
+          </CardContent>
+
       <button
         title={details.volumeInfo && details.volumeInfo.title}
         author={details.volumeInfo && details.volumeInfo.authors}
@@ -60,7 +66,10 @@ function DetailsPage() {
       >
         add book
       </button>
-     
+    
+
+      </Card>
+
     </>
   );
 }
