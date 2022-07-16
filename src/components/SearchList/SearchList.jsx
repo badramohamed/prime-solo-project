@@ -8,12 +8,10 @@ import SearchPage from "../SearchPage/SearchPage";
 function SearchList() {
   const books = useSelector((store) => store.search);
   const history = useHistory();
-  
 
   return (
     <>
       <SearchPage />
-      
 
       {books &&
         books.map((item) => {
@@ -23,7 +21,10 @@ function SearchList() {
           console.log("items in map", item.volumeInfo.title);
           return (
             <>
-              <div key={item.id} onClick={() => history.push(`/details/${item.id}`)}>
+              <div
+                key={item.id}
+                onClick={() => history.push(`/details/${item.id}`)}
+              >
                 <h3 className="title">{item.volumeInfo.title}</h3>
                 <img src={thumbnail}></img>
               </div>

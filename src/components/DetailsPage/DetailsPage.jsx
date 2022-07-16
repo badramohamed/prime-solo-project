@@ -44,32 +44,29 @@ function DetailsPage() {
     <>
       {/* <h1> DETAILS PAGE</h1> */}
       <Card sx={{ maxWidth: 345 }}>
-      <CardContent>
+        <CardContent>
+          <img
+            src={
+              details.volumeInfo && details.volumeInfo.imageLinks.smallThumbnail
+            }
+          />
+          <h2>{details.volumeInfo && details.volumeInfo.title}</h2>
+          <h2> {details.volumeInfo && details.volumeInfo.authors}</h2>
+          <h2>{details.volumeInfo && details.volumeInfo.description}</h2>
+        </CardContent>
 
-      <img
-        src={details.volumeInfo && details.volumeInfo.imageLinks.smallThumbnail}
-      />
-      <h2>{details.volumeInfo && details.volumeInfo.title}</h2>
-      <h2> {details.volumeInfo && details.volumeInfo.authors}</h2>
-      <h2>{details.volumeInfo && details.volumeInfo.description}</h2>
-      
-          </CardContent>
-
-      <button
-        title={details.volumeInfo && details.volumeInfo.title}
-        author={details.volumeInfo && details.volumeInfo.authors}
-        cover={
-          details.volumeInfo && details.volumeInfo.imageLinks.smallThumbnail
-        }
-        description={details.volumeInfo && details.volumeInfo.description}
-        onClick={Wishlist}
-      >
-        add book
-      </button>
-    
-
+        <button
+          title={details.volumeInfo && details.volumeInfo.title}
+          author={details.volumeInfo && details.volumeInfo.authors}
+          cover={
+            details.volumeInfo && details.volumeInfo.imageLinks.smallThumbnail
+          }
+          description={details.volumeInfo && details.volumeInfo.description}
+          onClick={Wishlist}
+        >
+          add book
+        </button>
       </Card>
-
     </>
   );
 }

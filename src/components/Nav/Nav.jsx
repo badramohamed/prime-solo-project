@@ -1,8 +1,8 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import LogOutButton from '../LogOutButton/LogOutButton';
-import './Nav.css';
-import { useSelector } from 'react-redux';
+import React from "react";
+import { Link } from "react-router-dom";
+import LogOutButton from "../LogOutButton/LogOutButton";
+import "./Nav.css";
+import { useSelector } from "react-redux";
 
 function Nav() {
   const user = useSelector((store) => store.user);
@@ -10,7 +10,7 @@ function Nav() {
   return (
     <div className="nav">
       <Link to="/home">
-        <h2 className="nav-title">BookBuzz</h2>
+        <h2 className="nav-title">BookBuzz </h2>
       </Link>
       <div>
         {/* If no user is logged in, show these links */}
@@ -28,27 +28,25 @@ function Nav() {
               Home
             </Link>
             <Link className="navLink" to="/booklist">
-              Search       
-              </Link>
-              <Link className="navLink" to="/books">
-              Books       
-              </Link>
-              <Link className="navLink" to="/contact">
-              Contact       
-              </Link>
+              Search
+            </Link>
+            <Link className="navLink" to="/books">
+              Books
+            </Link>
+            <Link className="navLink" to="/contact">
+              Contact
+            </Link>
 
             {/* <Link className="navLink" to="/info">
               Info Page
             </Link> */}
-             <Link className="navLink" to="/about">
-          About
-        </Link>
+            <Link className="navLink" to="/about">
+              About
+            </Link>
 
             <LogOutButton className="navLink" />
           </>
         )}
-
-      
       </div>
     </div>
   );

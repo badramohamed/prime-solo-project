@@ -19,14 +19,12 @@ function SearchPage() {
     setSearch("");
     // history.push('/search');
   };
- 
 
   return (
     <>
       <section>
         <form onSubmit={handleSubmit}>
           <label>
-
             <input
               type="search"
               placeholder="Enter Your Book Name"

@@ -1,17 +1,17 @@
-const express = require('express');
-const bodyParser = require('body-parser');
-require('dotenv').config();
+const express = require("express");
+const bodyParser = require("body-parser");
+require("dotenv").config();
 
 const app = express();
 
-const sessionMiddleware = require('./modules/session-middleware');
-const passport = require('./strategies/user.strategy');
+const sessionMiddleware = require("./modules/session-middleware");
+const passport = require("./strategies/user.strategy");
 
 // Route includes
-const userRouter = require('./routes/user.router');
-const searchRouter = require('./routes/search.router');
-const detailsRouter = require('./routes/details.router');
-const booksRouter = require ('./routes/books.router')
+const userRouter = require("./routes/user.router");
+const searchRouter = require("./routes/search.router");
+const detailsRouter = require("./routes/details.router");
+const booksRouter = require("./routes/books.router");
 
 // Body parser middleware
 app.use(bodyParser.json());
@@ -25,14 +25,13 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 /* Routes */
-app.use('/api/user', userRouter);
-app.use('/api/:search', searchRouter);
-app.use('/api/details', detailsRouter);
-app.use('/api/books', booksRouter);
-
+app.use("/api/user", userRouter);
+app.use("/api/:search", searchRouter);
+app.use("/api/details", detailsRouter);
+app.use("/api/books", booksRouter);
 
 // Serve static files
-app.use(express.static('build'));
+app.use(express.static("build"));
 
 // App Set //
 const PORT = process.env.PORT || 5000;
