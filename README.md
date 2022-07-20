@@ -9,4 +9,4 @@ JavaScript • React • React Redux • Redux-Saga • Node • Express • Pos
 
 ### Image 
 
-![alt text](https://imgur.com/i4adjpt)
+![alt text]https://i.imgur.com/i4adjpt.png)
